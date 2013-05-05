@@ -31,11 +31,6 @@
 @interface AFURLConnectionByteSpeedMeasure : NSObject
 
 /**
- BOOL flag indicating if this speed measure is active.
- */
-@property (nonatomic, assign) BOOL active;
-
-/**
  The calculated speed in bytes/s.
  */
 @property (nonatomic, readonly) double speed;

@@ -36,7 +36,7 @@
 @end
 
 @implementation AFURLConnectionByteSpeedMeasure
-@synthesize active = _active, speed = _speed, humanReadableSpeed = _humanReadableSpeed, windowSize = _windowSize, speedCalculationTimeInterval = _speedCalculationTimeInterval;
+@synthesize speed = _speed, humanReadableSpeed = _humanReadableSpeed, windowSize = _windowSize, speedCalculationTimeInterval = _speedCalculationTimeInterval;
 
 #pragma mark - Setters and getters
 
@@ -70,10 +70,6 @@
 
 - (void)updateSpeedWithDataChunkLength:(NSUInteger)dataChunkLength receivedAtDate:(NSDate *)date
 {
-    if (!self.active) {
-        return;
-    }
-    
     if (_chunkLengthsArray.count >= self.windowSize) {
         [_chunkLengthsArray removeObjectAtIndex:0];
         [_timesArray removeObjectAtIndex:0];
@@ -88,7 +84,8 @@
     
     NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
     if (now - _lastSpeedCalculationTimeInterval < self.speedCalculationTimeInterval) {
-        return;
+        DLog(@"Warning: difference in time interval: %d", (self.speedCalculationTimeInterval - (now-_lastSpeedCalculationTimeInterval)));
+        //return;
     }
     
     NSNumber *totalBytesUploaded = [_chunkLengthsArray valueForKeyPath:@"@sum.self"];
@@ -103,7 +100,6 @@
 - (NSTimeInterval)remainingTimeOfTotalSize:(long long)totalSize
                      numberOfCompletedBytes:(long long)numberOfCompletedBytes
 {
-    NSAssert(self.active, @"AFURLConnectionByteSpeedMeasure must be set active to compute the remaining time");
     
     if (numberOfCompletedBytes >= totalSize || self.speed == 0.0) {
         return 0.0;
