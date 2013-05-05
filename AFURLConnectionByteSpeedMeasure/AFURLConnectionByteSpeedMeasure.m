@@ -55,13 +55,14 @@
 
 - (id)init
 {
-    if (self = [super init]) {
+    self = [super init];
+    if (self) {
         _windowSize = 64;
         _timesArray = [NSMutableArray arrayWithCapacity:_windowSize];
         _chunkLengthsArray = [NSMutableArray arrayWithCapacity:_windowSize];
         _speedCalculationTimeInterval = 1.0;
         _lastSpeedCalculationTimeInterval = [[NSDate date] timeIntervalSince1970];
-        _humanReadableSpeed = [self _humanReadableSpeedFromSpeed:_speed];;
+        _humanReadableSpeed = [self _humanReadableSpeedFromSpeed:_speed];
     }
     return self;
 }
@@ -84,7 +85,7 @@
     
     NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
     if (now - _lastSpeedCalculationTimeInterval < self.speedCalculationTimeInterval) {
-        DLog(@"Warning: difference in time interval: %d", (self.speedCalculationTimeInterval - (now-_lastSpeedCalculationTimeInterval)));
+        //DLog(@"Warning: difference in time interval: %d", (self.speedCalculationTimeInterval - (now-_lastSpeedCalculationTimeInterval)));
         //return;
     }
     
