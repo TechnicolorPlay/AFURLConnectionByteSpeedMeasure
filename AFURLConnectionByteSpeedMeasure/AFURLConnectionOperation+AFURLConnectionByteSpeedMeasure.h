@@ -30,11 +30,11 @@
 /**
  Used to calculate the download speed.
  */
-@property (nonatomic, strong, readonly) AFURLConnectionByteSpeedMeasure *downloadSpeedMeasure;
+@property (nonatomic, readonly) AFURLConnectionByteSpeedMeasure *downloadSpeedMeasure;
 
 /**
  Used to calculate the upload speed.
  */
-@property (nonatomic, strong, readonly) AFURLConnectionByteSpeedMeasure *uploadSpeedMeasure;
+@property (nonatomic, readonly) AFURLConnectionByteSpeedMeasure *uploadSpeedMeasure;
 
 @end

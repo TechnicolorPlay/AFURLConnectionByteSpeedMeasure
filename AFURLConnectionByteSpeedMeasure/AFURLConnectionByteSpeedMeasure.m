@@ -140,7 +140,7 @@
                            ]);
     });
     
-    int counter = 0;
+    NSUInteger counter = 0;
     while (counter < availableTimeIntervals && remainingTime > timeIntervals[counter]) {
         remainingTime /= timeIntervals[counter];
         counter++;
@@ -168,7 +168,7 @@
                          ]);
     });
     
-    int counter = 0;
+    NSUInteger counter = 0;
     while (counter < speedMeasures.count - 1 && speed > 900.0) {
         speed /= 1024.0;
         counter++;

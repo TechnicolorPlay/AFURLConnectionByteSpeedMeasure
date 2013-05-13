@@ -40,6 +40,7 @@ static inline void class_swizzleSelector(Class class, SEL originalSelector, SEL 
 }
 
 
+
 @implementation AFURLConnectionOperation (AFURLConnectionByteSpeedMeasure)
 
 #pragma mark - setters and getters
