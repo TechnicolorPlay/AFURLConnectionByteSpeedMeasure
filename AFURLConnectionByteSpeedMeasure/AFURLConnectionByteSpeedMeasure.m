@@ -42,7 +42,7 @@
 
 - (void)setSpeed:(double)speed
 {
-    if (speed != _speed) {
+    if (!fequal(speed, _speed)) {
         [self willChangeValueForKey:@"speed"];
         _speed = speed;
         [self didChangeValueForKey:@"speed"];

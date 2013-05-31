@@ -78,7 +78,7 @@ static inline void class_swizzleSelector(Class class, SEL originalSelector, SEL 
 #pragma mark - NSURLConnectionDelegate
 
 - (void)__AFURLConnectionByteSpeedMeasureConnection:(NSURLConnection *)connection
-                                    didSendBodyData:(NSInteger)bytesWritten
+                                    didSendBodyData:(NSUInteger)bytesWritten
                                   totalBytesWritten:(NSInteger)totalBytesWritten
                           totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
 {
