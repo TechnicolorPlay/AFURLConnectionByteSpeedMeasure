@@ -25,8 +25,8 @@
 #import "AFURLConnectionOperation+AFURLConnectionByteSpeedMeasure.h"
 #import <objc/runtime.h>
 
-char *const AFURLConnectionOperationAFURLConnectionByteSpeedMeasureDownloadSpeedMeasureKey;
-char *const AFURLConnectionOperationAFURLConnectionByteSpeedMeasureUploadSpeedMeasureKey;
+static char *const AFURLConnectionOperationAFURLConnectionByteSpeedMeasureDownloadSpeedMeasureKey;
+static char *const AFURLConnectionOperationAFURLConnectionByteSpeedMeasureUploadSpeedMeasureKey;
 
 static inline void class_swizzleSelector(Class class, SEL originalSelector, SEL newSelector)
 {
